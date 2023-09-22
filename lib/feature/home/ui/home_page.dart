@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
         title: const Text('ホーム'),
       ),
       body: const Center(
-        child: Text('ホーム'),
+        child: Text('ようこそ！'),
       ),
     );
   }

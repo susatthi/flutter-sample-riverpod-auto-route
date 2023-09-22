@@ -8,9 +8,21 @@ class LoginButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return FilledButton(
-      onPressed: () => ref.read(loginUseCaseProvider.notifier).invoke(),
-      child: const Text('ログイン'),
-    );
+    final useCaseState = ref.watch(loginUseCaseProvider);
+
+    return useCaseState.isLoading
+        ? const FilledButton(
+            onPressed: null,
+            child: SizedBox.square(
+              dimension: 24,
+              child: CircularProgressIndicator(
+                strokeWidth: 2.5,
+              ),
+            ),
+          )
+        : FilledButton(
+            onPressed: () => ref.read(loginUseCaseProvider.notifier).invoke(),
+            child: const Text('ログイン'),
+          );
   }
 }

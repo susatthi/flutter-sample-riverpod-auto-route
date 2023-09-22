@@ -17,6 +17,7 @@ class LoginUseCase extends _$LoginUseCase {
     }
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
+      await Future<void>.delayed(const Duration(seconds: 3));
       final auth = ref.read(firebaseAuthProvider);
       final credential = await auth.signInAnonymously();
       final user = credential.user;
