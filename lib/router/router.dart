@@ -27,9 +27,8 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) {
     final routeName = resolver.route.name;
-    logger.i('onNavigation(): routeName = $routeName');
-
     final loggedIn = ref.read(loggedInProvider);
+    logger.i('onNavigation(): loggedIn = $loggedIn, routeName = $routeName');
     if (loggedIn) {
       resolver.next();
     } else if (routeName == LoginRoute.name) {
