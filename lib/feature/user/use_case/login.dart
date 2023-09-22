@@ -1,7 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../data_source/firebase/auth.dart';
-import '../../../router/router.dart';
 import '../../../util/logger.dart';
 
 part 'login.g.dart';
@@ -22,8 +21,7 @@ class LoginUseCase extends _$LoginUseCase {
       final credential = await auth.signInAnonymously();
       final user = credential.user;
       assert(user != null);
-      logger.i(user);
-      ref.invalidate(appRouterProvider);
+      logger.i('Success login: user = $user');
     });
   }
 }

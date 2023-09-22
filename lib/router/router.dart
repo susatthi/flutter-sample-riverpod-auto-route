@@ -28,13 +28,16 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) {
     final routeName = resolver.route.name;
-    final loggedIn = ref.read(loggedInProvider);
-    logger.i('onNavigation(): loggedIn = $loggedIn, routeName = $routeName');
+    final loggedIn = ref.watch(loggedInProvider);
+    logger.i(
+      'onNavigation(): START loggedIn = $loggedIn, routeName = $routeName',
+    );
     if (loggedIn) {
       resolver.next();
     } else if (routeName == LoginRoute.name) {
       resolver.next();
     } else {
+      logger.i('onNavigation(): Redirect to LoginPage.');
       resolver.redirect(
         const LoginRoute(),
       );

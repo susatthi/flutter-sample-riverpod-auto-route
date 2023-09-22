@@ -1,7 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../data_source/firebase/auth.dart';
-import '../../../router/router.dart';
 
 part 'logout.g.dart';
 
@@ -19,7 +18,6 @@ class LogoutUseCase extends _$LogoutUseCase {
       await Future<void>.delayed(const Duration(seconds: 3));
       final auth = ref.read(firebaseAuthProvider);
       await auth.signOut();
-      ref.invalidate(appRouterProvider);
     });
   }
 }
