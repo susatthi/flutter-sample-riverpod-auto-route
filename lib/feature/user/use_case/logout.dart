@@ -1,6 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../../data_source/mock_firebase/auth.dart';
+import '../../../data_source/firebase/auth.dart';
 import '../../../router/router.dart';
 
 part 'logout.g.dart';
