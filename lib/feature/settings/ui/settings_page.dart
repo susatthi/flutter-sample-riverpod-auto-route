@@ -14,7 +14,11 @@ class SettingsPage extends StatelessWidget {
         title: const Text('設定'),
       ),
       body: const Center(
-        child: LogoutButton(),
+        child: SizedBox(
+          height: 50,
+          width: 160,
+          child: LogoutButton(),
+        ),
       ),
     );
   }
