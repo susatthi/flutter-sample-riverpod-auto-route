@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../feature/home/ui/home_page.dart';
-import '../feature/home/ui/not_found_page.dart';
 import '../feature/settings/ui/settings_page.dart';
 import '../feature/user/state/logged_in.dart';
 import '../feature/user/ui/login_page.dart';
@@ -57,10 +56,6 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
         AutoRoute(
           path: '/login',
           page: LoginRoute.page,
-        ),
-        AutoRoute(
-          path: '*',
-          page: NotFoundRoute.page,
         ),
       ];
 }
